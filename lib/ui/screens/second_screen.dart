@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dotted_decoration/dotted_decoration.dart';
 import 'package:flutter/material.dart';
 
 class _AdditionalWidget extends StatefulWidget {
@@ -223,19 +224,31 @@ class _SecondScreenState extends State<SecondScreen> {
             ),
           ),
           Container(
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: Colors.grey,
+            decoration: DottedDecoration(
+              linePosition: LinePosition.top,
+              color: Colors.blueGrey,
             ),
-            child: Row(
-              children: [
-                Text(
-                  'Дополнительно',
-                  style: const TextStyle(fontSize: 18),
+            child: Container(
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: Colors.grey,
+              ),
+              child: Container(
+                decoration: DottedDecoration(
+                  linePosition: LinePosition.bottom,
+                  color: Colors.blueGrey,
                 ),
-                Spacer(),
-                Text('x$count $sum р.'),
-              ],
+                child: Row(
+                  children: [
+                    Text(
+                      'Дополнительно',
+                      style: const TextStyle(fontSize: 18),
+                    ),
+                    Spacer(),
+                    Text('x$count $sum р.'),
+                  ],
+                ),
+              ),
             ),
           ),
         ],
