@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cached_image_shop/app.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -21,7 +22,17 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   Future<void> _onButtonTap() async {
-    if (formKey.currentState.validate()) {}
+    if (formKey.currentState.validate()) {
+      await Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => SecondScreen(
+            imageUrl: imageUrlController.text,
+            number: int.parse(numberController.text),
+          ),
+        ),
+      );
+    }
   }
 
   String imageUrlValidator(String s) {
