@@ -50,8 +50,6 @@ class _AdditionalWidgetState extends State<_AdditionalWidget> {
       aspectRatio: 1,
       child: CachedNetworkImage(
         imageUrl: widget.imageUrl,
-        placeholder: (context, url) =>
-            Center(child: CircularProgressIndicator()),
         errorWidget: (context, url, error) => Icon(Icons.error),
       ),
     );
