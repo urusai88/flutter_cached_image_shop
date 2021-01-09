@@ -14,7 +14,8 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     super.initState();
 
-    imageUrlController = TextEditingController();
+    imageUrlController =
+        TextEditingController(text: 'https://via.placeholder.com/150');
     numberController = TextEditingController();
     formKey = GlobalKey();
   }
@@ -25,23 +26,19 @@ class _MainScreenState extends State<MainScreen> {
 
   String imageUrlValidator(String s) {
     final err = 'Значение должно быть ссылкой';
-
     try {
       final uri = Uri.parse(s);
-
       if (uri.scheme.isEmpty) {
         return err;
       }
     } catch (e) {
       return err;
     }
-
     return null;
   }
 
   String numberValidator(String s) {
     final err = 'Значение должно быть целым числом от 3 до 5';
-
     try {
       final i = int.parse(s);
       if (i < 3 || i > 5) {
@@ -50,7 +47,6 @@ class _MainScreenState extends State<MainScreen> {
     } catch (e) {
       return err;
     }
-
     return null;
   }
 
@@ -75,7 +71,7 @@ class _MainScreenState extends State<MainScreen> {
                 controller: imageUrlController,
                 validator: imageUrlValidator,
                 decoration: inputDecoration.copyWith(
-                  labelText: 'Image url',
+                  labelText: 'Ссылка на изображение',
                 ),
               ),
               const SizedBox(height: 10),
@@ -84,12 +80,12 @@ class _MainScreenState extends State<MainScreen> {
                 validator: numberValidator,
                 keyboardType: TextInputType.number,
                 decoration: inputDecoration.copyWith(
-                  labelText: 'Number (3-5)',
+                  labelText: 'Число (3-5)',
                 ),
               ),
               ElevatedButton(
                 onPressed: _onButtonTap,
-                child: Text('Button!'),
+                child: Text('Кнопка!'),
               ),
             ],
           ),
